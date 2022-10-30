@@ -1,0 +1,74 @@
+<mat-drawer-container class="example-container" [hasBackdrop]="true">
+  <div>
+    <app-header></app-header>
+    <app-stepper></app-stepper>
+    <button mat-stroked-button color="primary" (click)="setNewAdmission()">
+      Inicar nova admissão
+    </button>
+    <button mat-flat-button color="primary" (click)="drawer.toggle()">
+      Dicas para abertura da conta
+    </button>
+  </div>
+
+  <mat-drawer #drawer class="example-sidenav" position="end" mode="over">
+    <h2>Check-list para abertura da conta</h2>
+    <p>
+      Confira algumas dicas que irão lhe ajudar neste atendimento para que a
+      admissão aconteça da melhor forma possível.
+    </p>
+    <section class="example-section">
+      <div>
+        <mat-checkbox #meetYourCooperate class="example-margin" color="primary"
+          >Conheça seu cooperado</mat-checkbox
+        >
+        <div *ngIf="meetYourCooperate.checked">
+          <ul>
+            <li>O que traz você até a Cooperativa?</li>
+            <li>O que é mais importante na sua vida?</li>
+            <li>Você tem algum sonho?</li>
+          </ul>
+        </div>
+      </div>
+      <div>
+        <mat-checkbox
+          #talkAboutYourCooperative
+          class="example-margin"
+          color="primary"
+          >Fale sobre a Cooperativa</mat-checkbox
+        >
+        <div *ngIf="talkAboutYourCooperative.checked">
+          <ul>
+            <li>
+              Modelo de Negócio: direito a voto, transparência na gestão,
+              PROGRID, retorno das sobras, taxas atrativas;
+            </li>
+            <li>
+              Rede de Atendimento: App, Conta Online, SAC, Caixas Eletrônicos
+              (compartilhados entre as Cooperativas), Postos de Atendimento.
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div>
+        <mat-checkbox
+          #requiredDocumentsAndEvidences
+          class="example-margin"
+          color="primary"
+          >Documentos e comprovações necessárias</mat-checkbox
+        >
+        <div *ngIf="requiredDocumentsAndEvidences.checked">
+          <ul>
+            <li>CPF regular na Receita Federal;</li>
+            <li>
+              Documento de Identificação (RG, CNH, Carteira de Trabalho, RNM,
+              Carteira Profissional, Passaporte Brasileiro);
+            </li>
+            <li>Comprovante de endereço;</li>
+            <li>Comprovante de renda.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    <button mat-stroked-button color="primary">Continuar atendimento</button>
+  </mat-drawer>
+</mat-drawer-container>

@@ -1,0 +1,96 @@
+<mat-stepper labelPosition="bottom" #stepper>
+  <mat-step [stepControl]="firstFormGroup">
+    <div>
+      <form [formGroup]="firstFormGroup">
+        <ng-template matStepLabel>Ínicio</ng-template>
+        <h2>Informe o CPF do futuro cooperado (a)</h2>
+        <p>
+          Se necessário, você poderá duplicar uma conta existente ou pausar e
+          retomar este cadastro futuramente.
+        </p>
+        <p>Digite apenas os números (sem pontos ou traços).</p>
+        <mat-form-field appearance="outline">
+          <mat-label>Name</mat-label>
+          <input
+            matInput
+            placeholder="Last name, First name"
+            formControlName="firstCtrl"
+            required
+          />
+        </mat-form-field>
+        <div>
+          <button mat-button matStepperNext>Consultar Por CPF</button>
+        </div>
+      </form>
+    </div>
+    <div class="search-container">
+      <div class="search-row">
+        <mat-card class="example-card">
+          <mat-card-header>
+            <mat-card-title>Situação cadastral do CPF</mat-card-title>
+            <mat-card-subtitle>Consulta na Receita Federal</mat-card-subtitle>
+          </mat-card-header>
+          <mat-card-content>
+            <mat-label>Nome</mat-label>
+            <p>Maria Ines</p>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+  </mat-step>
+
+  <mat-step [stepControl]="secondFormGroup">
+    <form [formGroup]="secondFormGroup">
+      <ng-template matStepLabel>Documentos</ng-template>
+      <mat-form-field appearance="fill">
+        <mat-label>Address</mat-label>
+        <input
+          matInput
+          formControlName="secondCtrl"
+          placeholder="Ex. 1 Main St, New York, NY"
+          required
+        />
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step [stepControl]="secondFormGroup">
+    <form [formGroup]="secondFormGroup">
+      <ng-template matStepLabel>Dados Cadastrais</ng-template>
+      <mat-form-field appearance="fill">
+        <mat-label>Address</mat-label>
+        <input
+          matInput
+          formControlName="secondCtrl"
+          placeholder="Ex. 1 Main St, New York, NY"
+          required
+        />
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step [stepControl]="secondFormGroup">
+    <form [formGroup]="secondFormGroup">
+      <ng-template matStepLabel>Admissão</ng-template>
+      <mat-form-field appearance="fill">
+        <mat-label>Address</mat-label>
+        <input
+          matInput
+          formControlName="secondCtrl"
+          placeholder="Ex. 1 Main St, New York, NY"
+          required
+        />
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+</mat-stepper>

@@ -1,0 +1,32 @@
+.mat-stepper-horizontal {
+  margin-top: 8px;
+}
+
+.mat-form-field {
+  margin-top: 16px;
+}
+
+.mat-form-field {
+  margin-top: 12px;
+}
+
+.search-container {
+  width: 100%;
+  padding-right: 1em;
+  padding-left: 1em;
+  margin-right: auto;
+  margin-left: auto;
+  box-sizing: border-box;
+  .search-row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -1em;
+    margin-left: -1em;
+  }
+  .example-card {
+    max-width: 400px;
+    flex: 0 0 25%;
+    max-width: 25%;
+    margin: 1em;
+  }
+}
