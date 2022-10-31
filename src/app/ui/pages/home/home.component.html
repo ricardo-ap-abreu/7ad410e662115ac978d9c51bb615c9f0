@@ -1,33 +1,33 @@
-<mat-drawer-container class="example-container" [hasBackdrop]="true">
+<mat-drawer-container class="home-container" [hasBackdrop]="true">
   <app-header></app-header>
   <app-stepper></app-stepper>
   <div class="actions-container">
     <button
+      class="start-admission"
       mat-flat-button
-      color="primary"
       (click)="goToAdmission()"
       *ngIf="hasSocialNumber"
     >
       Inicar nova admissão
     </button>
-    <button mat-stroked-button color="primary" (click)="drawer.toggle()">
+    <button class="hints" mat-flat-button (click)="drawer.toggle()">
       Dicas para abertura da conta
     </button>
   </div>
 
-  <mat-drawer #drawer class="example-sidenav" position="end" mode="over">
-    <h2>Check-list para abertura da conta</h2>
+  <mat-drawer #drawer class="home-sidenav" position="end" mode="over">
+    <h2>Check-list para <br />abertura da conta</h2>
     <p>
       Confira algumas dicas que irão lhe ajudar neste atendimento para que a
       admissão aconteça da melhor forma possível.
     </p>
-    <section class="example-section">
+    <div class="home-section">
       <div>
-        <mat-checkbox #meetYourCooperate class="example-margin" color="primary"
+        <mat-checkbox #meetYourCooperate class="home-margin" color="primary"
           >Conheça seu cooperado</mat-checkbox
         >
         <div *ngIf="meetYourCooperate.checked">
-          <ul>
+          <ul class="list">
             <li>O que traz você até a Cooperativa?</li>
             <li>O que é mais importante na sua vida?</li>
             <li>Você tem algum sonho?</li>
@@ -37,12 +37,12 @@
       <div>
         <mat-checkbox
           #talkAboutYourCooperative
-          class="example-margin"
+          class="home-margin"
           color="primary"
           >Fale sobre a Cooperativa</mat-checkbox
         >
         <div *ngIf="talkAboutYourCooperative.checked">
-          <ul>
+          <ul class="list">
             <li>
               Modelo de Negócio: direito a voto, transparência na gestão,
               PROGRID, retorno das sobras, taxas atrativas;
@@ -57,12 +57,12 @@
       <div>
         <mat-checkbox
           #requiredDocumentsAndEvidences
-          class="example-margin"
+          class="home-margin"
           color="primary"
           >Documentos e comprovações necessárias</mat-checkbox
         >
         <div *ngIf="requiredDocumentsAndEvidences.checked">
-          <ul>
+          <ul class="list">
             <li>CPF regular na Receita Federal;</li>
             <li>
               Documento de Identificação (RG, CNH, Carteira de Trabalho, RNM,
@@ -73,7 +73,11 @@
           </ul>
         </div>
       </div>
-    </section>
-    <button mat-stroked-button color="primary">Continuar atendimento</button>
+    </div>
+    <div class="drawer-action">
+      <button class="close-drawer" mat-flat-button (click)="drawer.close()">
+        Continuar atendimento
+      </button>
+    </div>
   </mat-drawer>
 </mat-drawer-container>

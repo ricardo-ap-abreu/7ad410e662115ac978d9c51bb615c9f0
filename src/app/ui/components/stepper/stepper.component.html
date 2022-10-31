@@ -1,53 +1,56 @@
 <mat-stepper labelPosition="bottom" #stepper>
   <mat-step [stepControl]="firstFormGroup">
-    <div>
-      <form [formGroup]="firstFormGroup">
-        <ng-template matStepLabel>Ínicio</ng-template>
-        <h2>Informe o CPF do futuro cooperado (a)</h2>
-        <p>
-          Se necessário, você poderá duplicar uma conta existente ou pausar e
-          retomar este cadastro futuramente.
-        </p>
-        <p>Digite apenas os números (sem pontos ou traços).</p>
-        <mat-form-field class="example-full-width" appearance="outline">
-          <mat-label>CPF</mat-label>
-          <input
-            type="tel"
-            matInput
-            [formControl]="emailFormControl"
-            [errorStateMatcher]="matcher"
-            required
-          />
-          <mat-hint>Errors appear instantly!</mat-hint>
-          <mat-error
-            *ngIf="
-              emailFormControl.hasError('email') &&
-              !emailFormControl.hasError('required')
-            "
-          >
-            Informe um CPF válido
-          </mat-error>
-          <mat-error *ngIf="emailFormControl.hasError('required')">
-            Informe um CPF válido
-          </mat-error>
-        </mat-form-field>
+    <form [formGroup]="firstFormGroup">
+      <ng-template matStepLabel>Ínicio</ng-template>
+      <h2>Informe o CPF do futuro cooperado (a)</h2>
+      <p>
+        Se necessário, você poderá duplicar uma conta existente ou pausar e
+        retomar este cadastro futuramente.
+      </p>
+      <p>Digite apenas os números (sem pontos ou traços).</p>
+      <h3>CPF</h3>
+      <div class="search">
+        <input
+          type="tel"
+          matInput
+          [formControl]="socialNumberFormControl"
+          [errorStateMatcher]="matcher"
+          placeholder="000.000.000-00"
+          required
+          [ngClass]="
+            socialNumberFormControl.hasError('required') ? 'error' : ''
+          "
+        />
         <div>
-          <button mat-button matStepperNext>Consultar Por CPF</button>
+          <button mat-flat-button color="primary" matStepperNext>
+            Consultar Por CPF
+          </button>
         </div>
-      </form>
-    </div>
+      </div>
+      <span
+        class="error"
+        *ngIf="
+          socialNumberFormControl.hasError('socialNumber') &&
+          !socialNumberFormControl.hasError('required')
+        "
+      >
+        Informe um CPF válido
+      </span>
+      <span class="error" *ngIf="socialNumberFormControl.hasError('required')">
+        Campo obrigatório
+      </span>
+    </form>
     <div class="search-container">
       <div class="search-row">
-        <mat-card class="example-card">
-          <mat-card-header>
-            <mat-card-title>Situação cadastral do CPF</mat-card-title>
-            <mat-card-subtitle>Consulta na Receita Federal</mat-card-subtitle>
-          </mat-card-header>
+        <mat-card class="stepper-card">
           <mat-card-content>
+            <h4>Situação cadastral do CPF</h4>
+            <h5>Consulta na Receita Federal</h5>
+
             <mat-label>Nome</mat-label>
             <p>Maria Ines</p>
-            <mat-label>Nome</mat-label>
-            <p>Maria Ines</p>
+            <mat-label>Situação do CPF</mat-label>
+            <p>Regular</p>
           </mat-card-content>
         </mat-card>
       </div>
@@ -58,7 +61,7 @@
     <form [formGroup]="secondFormGroup">
       <ng-template matStepLabel>Documentos</ng-template>
       <h2>Digitalização de documentos</h2>
-      <h3>{{ "Documentos do cooperado" | uppercase }}</h3>
+      <h4>{{ "Documentos do cooperado" | uppercase }}</h4>
       <p>
         A inserção de documentos pode ser feita via upload do computador ou
         fluxo do SmartShare (impressora). Os documentos devem ter boa
