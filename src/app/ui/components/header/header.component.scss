@@ -1,33 +1,67 @@
-.h1 {
-  font-family: "Exo 2";
-}
-
-.breadcrumb {
-  background: none;
-  font-size: 0.8em;
+.header-container {
+  display: grid;
+  grid-template-columns: 80% 20%;
+  padding: 19px 0 0 24px;
   margin: 0;
-  a,
-  span {
-    color: darkgrey;
+  .info-block {
+    margin: 20px;
+    h1 {
+      font-family: "Exo 2";
+      font-weight: 700;
+      font-size: 36px;
+      &.title {
+        margin: 5px 19px 0 0;
+      }
+    }
+
+    .breadcrumb {
+      background: none;
+      font-size: 12px;
+      font-family: "Open Sans", sans-serif;
+      margin: 0;
+    }
   }
-  a:hover,
-  span:hover {
-    color: dimgrey;
-    text-decoration: none;
+  .menu-block {
+    display: flex;
+    align-items: center;
+
+    .notification {
+      padding: 0 15px;
+      span {
+        font-size: 25px;
+        color: #125d79;
+        .mat-badge-content {
+          font-size: 10px;
+          color: white;
+        }
+      }
+    }
+
+    mat-chip {
+      border: 1px #125d79 solid;
+      color: #125d79;
+      background-color: white !important;
+      font-family: "Exo 2";
+      font-weight: 600;
+      font-size: 20px;
+      padding: 19px 24px;
+    }
+
+    .config {
+      border: 1px #125d79 solid;
+      border-radius: 50%;
+      width: 42px;
+      height: 42px;
+      margin: 0 15px;
+      .avatar {
+        width: 42px;
+        height: 42px;
+        border-radius: 50%;
+      }
+    }
   }
-  li {
-    list-style: none;
-    float: left;
-    margin: 5px;
-  }
-  li:last-child {
-    margin-right: 20px;
-  }
-  li::after {
-    content: "->";
-    color: darkgrey;
-  }
-  li:last-child::after {
-    content: "";
+
+  .mat-standard-chip {
+    border-radius: 25px !important;
   }
 }

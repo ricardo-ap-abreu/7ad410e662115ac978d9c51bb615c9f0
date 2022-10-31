@@ -11,7 +11,11 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  setNewAdmission(): void {
+  hasSocialNumber(): boolean {
+    return false;
+  }
+
+  goToAdmission(): void {
     console.log('teste');
   }
 }

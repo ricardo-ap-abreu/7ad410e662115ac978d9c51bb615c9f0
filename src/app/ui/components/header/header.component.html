@@ -1,10 +1,31 @@
-<div>
-  <h1 class="title">{{ title | uppercase }}</h1>
-</div>
-<div>
-  <mat-icon matBadge="7" matBadgeColor="warn">home</mat-icon>
-  <span> {{ name | uppercase }} </span>
-  <div>
-    <img class="" src="" alt="" />
+<div class="header-container">
+  <div class="info-block">
+    <h1 class="title">{{ title | uppercase }}</h1>
+    <p class="breadcrumb">
+      Cadastro / Admissão do Cooperado / Nova Admissão de Cooperado
+    </p>
+  </div>
+  <div class="menu-block">
+    <div class="notification">
+      <span
+        class="material-symbols-sharp"
+        matBadgeSize="small"
+        matBadge="7"
+        matBadgeColor="warn"
+      >
+        notifications
+      </span>
+    </div>
+    <mat-chip-list aria-label="chip">
+      <mat-chip>{{ name | uppercase }}</mat-chip>
+    </mat-chip-list>
+
+    <div class="config">
+      <img
+        class="avatar"
+        src="./../../../../assets/images/avatar.png"
+        alt="avatar"
+      />
+    </div>
   </div>
 </div>

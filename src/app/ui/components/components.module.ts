@@ -4,7 +4,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CoreModule } from 'src/app/core/core.module';
 import { HeaderComponent } from './header/header.component';
 import { SearchComponent } from './search/search.component';
-import { SidebarNotificationsComponent } from './sidebar-notifications/sidebar-notifications.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
 import { StepperComponent } from './stepper/stepper.component';
 
@@ -13,7 +12,6 @@ import { StepperComponent } from './stepper/stepper.component';
     HeaderComponent,
     StepperComponent,
     SearchComponent,
-    SidebarNotificationsComponent,
     SidenavComponent,
   ],
   imports: [CommonModule, CoreModule, FormsModule, ReactiveFormsModule],
@@ -21,7 +19,6 @@ import { StepperComponent } from './stepper/stepper.component';
     HeaderComponent,
     StepperComponent,
     SearchComponent,
-    SidebarNotificationsComponent,
     SidenavComponent,
   ],
   providers: [],

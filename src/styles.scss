@@ -7,7 +7,6 @@
 // have to load a single css file for Angular Material in your app.
 // Be sure that you only ever include this mixin once!
 @include mat.core();
-
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
@@ -47,10 +46,29 @@ body {
   position: relative;
   font-family: "Open Sans", sans-serif;
 }
-
-h1,
-h2,
-h3,
-h4 {
-  font-family: "Exo 2", sans-serif;
+.mat-typography h1 {
+  h1 {
+    font-family: "Exo 2";
+    font-weight: 700;
+    font-size: 36px;
+    margin: 0;
+  }
+  h2 {
+    font-family: "Exo 2";
+    font-weight: 700;
+    font-size: 32px;
+    margin: 0;
+  }
+  h3 {
+    font-family: "Exo 2";
+    font-weight: 600;
+    font-size: 28px;
+    margin: 0;
+  }
+  h4 {
+    font-family: "Exo 2";
+    font-weight: 600;
+    font-size: 24px;
+    margin: 0;
+  }
 }

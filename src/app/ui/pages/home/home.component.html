@@ -1,11 +1,16 @@
 <mat-drawer-container class="example-container" [hasBackdrop]="true">
-  <div>
-    <app-header></app-header>
-    <app-stepper></app-stepper>
-    <button mat-stroked-button color="primary" (click)="setNewAdmission()">
+  <app-header></app-header>
+  <app-stepper></app-stepper>
+  <div class="actions-container">
+    <button
+      mat-flat-button
+      color="primary"
+      (click)="goToAdmission()"
+      *ngIf="hasSocialNumber"
+    >
       Inicar nova admissão
     </button>
-    <button mat-flat-button color="primary" (click)="drawer.toggle()">
+    <button mat-stroked-button color="primary" (click)="drawer.toggle()">
       Dicas para abertura da conta
     </button>
   </div>

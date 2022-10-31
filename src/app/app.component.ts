@@ -7,10 +7,10 @@ import { SideNavToogle } from './ui/models/sidenav/interfaces/side-nav-toggle.in
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  title = 'ailos';
+  public title = 'ailos';
 
-  isSideNavCollapsed = false;
-  screenWidth = 0;
+  public isSideNavCollapsed = false;
+  public screenWidth = 0;
 
   onToggleSideNav(data: SideNavToogle): void {
     this.screenWidth = data.screeWidth;
