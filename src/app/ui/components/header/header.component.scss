@@ -1,7 +1,6 @@
 .header-container {
   display: grid;
   grid-template-columns: 80% 20%;
-  padding: 19px 0 0 24px;
   margin: 0;
   .info-block {
     margin: 20px;
@@ -10,7 +9,7 @@
       font-weight: 700;
       font-size: 36px;
       &.title {
-        margin: 5px 19px 0 0;
+        margin: 5px 0 0 0;
       }
     }
 
