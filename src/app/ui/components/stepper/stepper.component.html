@@ -8,21 +8,23 @@
         retomar este cadastro futuramente.
       </p>
       <p>Digite apenas os números (sem pontos ou traços).</p>
-      <h3>CPF</h3>
+      <span class="label">CPF</span>
       <div class="search">
         <input
-          type="tel"
+          type="text"
           matInput
-          [formControl]="socialNumberFormControl"
+          formControlName="socialNumber"
           [errorStateMatcher]="matcher"
           placeholder="000.000.000-00"
           required
-          [ngClass]="
-            socialNumberFormControl.hasError('required') ? 'error' : ''
-          "
+          (keyup.enter)="onPressEnter($event)"
         />
         <div>
-          <button mat-flat-button color="primary" matStepperNext>
+          <button
+            mat-flat-button
+            class="social-number-search"
+            (click)="findSocialNumber()"
+          >
             Consultar Por CPF
           </button>
         </div>
@@ -30,27 +32,40 @@
       <span
         class="error"
         *ngIf="
-          socialNumberFormControl.hasError('socialNumber') &&
-          !socialNumberFormControl.hasError('required')
+          firstFormGroup.hasError('socialNumber') &&
+          !firstFormGroup.hasError('required')
         "
       >
         Informe um CPF válido
       </span>
-      <span class="error" *ngIf="socialNumberFormControl.hasError('required')">
+      <span class="error" *ngIf="firstFormGroup.hasError('required')">
         Campo obrigatório
       </span>
     </form>
-    <div class="search-container">
+    <div class="search-container" *ngIf="haveResults()">
       <div class="search-row">
         <mat-card class="stepper-card">
           <mat-card-content>
-            <h4>Situação cadastral do CPF</h4>
-            <h5>Consulta na Receita Federal</h5>
-
-            <mat-label>Nome</mat-label>
-            <p>Maria Ines</p>
-            <mat-label>Situação do CPF</mat-label>
-            <p>Regular</p>
+            <span class="card-title">Situação cadastral do CPF</span>
+            <span class="subtitle">Consulta na Receita Federal</span>
+            <div class="info">
+              <div class="icon-holder">
+                <mat-icon> person</mat-icon>
+              </div>
+              <div>
+                <mat-label>Nome</mat-label>
+                <p>{{ client.getName() }}</p>
+              </div>
+            </div>
+            <div class="info">
+              <div class="icon-holder">
+                <mat-icon class="checkmark">check_circle</mat-icon>
+              </div>
+              <div>
+                <mat-label>Situação do CPF</mat-label>
+                <p>{{ client.getSituation() }}</p>
+              </div>
+            </div>
           </mat-card-content>
         </mat-card>
       </div>
@@ -71,67 +86,52 @@
       <div class="search-row">
         <mat-card class="indentification-card">
           <mat-card-header>
-            <mat-card-title>Identificação (frente)</mat-card-title>
-            <mat-card-subtitle>Obrigatório</mat-card-subtitle>
+            <span class="card-title">Identificação (frente)</span>
+            <span class="subtitle">Obrigatório</span>
           </mat-card-header>
-
           <mat-card-content>
-            <p>
-              The Shiba Inu is the smallest of the six original and distinct
-              spitz breeds of dog from Japan. A small, agile dog that copes very
-              well with mountainous terrain, the Shiba Inu was originally bred
-              for hunting.
-            </p>
+            <div class="file-container"></div>
+            <button mat-button class="btn-file">Capturar imagem</button>
           </mat-card-content>
         </mat-card>
         <mat-card class="indentification-card">
           <mat-card-header>
-            <mat-card-title>Identificação (verso)</mat-card-title>
-            <mat-card-subtitle>Obrigatório</mat-card-subtitle>
+            <span class="card-title">Identificação (verso)</span>
+            <span class="subtitle">Obrigatório</span>
           </mat-card-header>
-
           <mat-card-content>
-            <p>
-              The Shiba Inu is the smallest of the six original and distinct
-              spitz breeds of dog from Japan. A small, agile dog that copes very
-              well with mountainous terrain, the Shiba Inu was originally bred
-              for hunting.
-            </p>
+            <div class="file-container"></div>
+            <button mat-button class="btn-file">Capturar imagem</button>
           </mat-card-content>
         </mat-card>
         <mat-card class="indentification-card">
           <mat-card-header>
-            <mat-card-title>Comprovante de residência</mat-card-title>
-            <mat-card-subtitle>Obrigatório</mat-card-subtitle>
+            <span class="card-title">Comprovante de residência</span>
+            <span class="subtitle">Obrigatório</span>
           </mat-card-header>
           <mat-card-content>
-            <p>
-              The Shiba Inu is the smallest of the six original and distinct
-              spitz breeds of dog from Japan. A small, agile dog that copes very
-              well with mountainous terrain, the Shiba Inu was originally bred
-              for hunting.
-            </p>
+            <div class="file-container"></div>
+            <button mat-button class="btn-file">Capturar imagem</button>
           </mat-card-content>
         </mat-card>
         <mat-card class="indentification-card">
           <mat-card-header>
-            <mat-card-title>Comprovante de renda</mat-card-title>
-            <mat-card-subtitle>Opcional</mat-card-subtitle>
+            <span class="card-title">Comprovante de renda</span>
+            <span class="subtitle">Opcional</span>
           </mat-card-header>
 
           <mat-card-content>
-            <p>
-              The Shiba Inu is the smallest of the six original and distinct
-              spitz breeds of dog from Japan. A small, agile dog that copes very
-              well with mountainous terrain, the Shiba Inu was originally bred
-              for hunting.
-            </p>
+            <div class="file-container"></div>
+            <button mat-button class="btn-file">Capturar imagem</button>
           </mat-card-content>
         </mat-card>
       </div>
+      <mat-divider></mat-divider>
       <div>
-        <h3>{{ "Documentos do representante" | uppercase }}</h3>
-        <p>
+        <h4 class="representative">
+          {{ "Documentos do representante" | uppercase }}
+        </h4>
+        <p class="text">
           Os documentos do responsável legal, curador ou procurador devem ser
           inclusos no sistema para verificação e devem ter boa visibilidade,
           estar legíveis e dentro das datas de validade.
@@ -145,43 +145,30 @@
         <div class="search-row">
           <mat-card class="indentification-card">
             <mat-card-header>
-              <mat-card-title>Documento lorem ipsum</mat-card-title>
-              <mat-card-subtitle>Obrigatório</mat-card-subtitle>
+              <span class="card-title">Documento lorem ipsum</span>
+              <span class="subtitle">Obrigatório</span>
             </mat-card-header>
-
             <mat-card-content>
-              <p>
-                The Shiba Inu is the smallest of the six original and distinct
-                spitz breeds of dog from Japan. A small, agile dog that copes
-                very well with mountainous terrain, the Shiba Inu was originally
-                bred for hunting.
-              </p>
+              <div class="file-container"></div>
+              <button mat-button class="btn-file">Capturar imagem</button>
             </mat-card-content>
           </mat-card>
           <mat-card class="indentification-card">
             <mat-card-header>
-              <mat-card-title>Documento lorem ipsum</mat-card-title>
-              <mat-card-subtitle>Opcional</mat-card-subtitle>
+              <span class="card-title">Documento lorem ipsum</span>
+              <span class="subtitle">Obrigatório</span>
             </mat-card-header>
-
             <mat-card-content>
-              <p>
-                The Shiba Inu is the smallest of the six original and distinct
-                spitz breeds of dog from Japan. A small, agile dog that copes
-                very well with mountainous terrain, the Shiba Inu was originally
-                bred for hunting.
-              </p>
+              <div class="file-container"></div>
+              <button mat-button class="btn-file">Capturar imagem</button>
             </mat-card-content>
           </mat-card>
         </div>
       </div>
-      <div>
-        <button mat-button matStepperNext>Consultar Por CPF</button>
-      </div>
     </form>
   </mat-step>
-  <mat-step [stepControl]="secondFormGroup">
-    <form [formGroup]="secondFormGroup">
+  <mat-step [stepControl]="thirdFormGroup">
+    <form [formGroup]="thirdFormGroup">
       <ng-template matStepLabel>Dados Cadastrais</ng-template>
       <mat-form-field appearance="fill">
         <mat-label>Address</mat-label>
@@ -198,8 +185,8 @@
       </div>
     </form>
   </mat-step>
-  <mat-step [stepControl]="secondFormGroup">
-    <form [formGroup]="secondFormGroup">
+  <mat-step [stepControl]="fourthFormGroup">
+    <form [formGroup]="fourthFormGroup">
       <ng-template matStepLabel>Admissão</ng-template>
       <mat-form-field appearance="fill">
         <mat-label>Address</mat-label>

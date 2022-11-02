@@ -6,7 +6,7 @@
       class="start-admission"
       mat-flat-button
       (click)="goToAdmission()"
-      *ngIf="hasSocialNumber"
+      (results)="hasSocialNumber($event)"
     >
       Inicar nova admissão
     </button>

@@ -3,24 +3,13 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CoreModule } from 'src/app/core/core.module';
 import { HeaderComponent } from './header/header.component';
-import { SearchComponent } from './search/search.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
 import { StepperComponent } from './stepper/stepper.component';
 
 @NgModule({
-  declarations: [
-    HeaderComponent,
-    StepperComponent,
-    SearchComponent,
-    SidenavComponent,
-  ],
+  declarations: [HeaderComponent, StepperComponent, SidenavComponent],
   imports: [CommonModule, CoreModule, FormsModule, ReactiveFormsModule],
-  exports: [
-    HeaderComponent,
-    StepperComponent,
-    SearchComponent,
-    SidenavComponent,
-  ],
+  exports: [HeaderComponent, StepperComponent, SidenavComponent],
   providers: [],
 })
 export class ComponentsModule {}

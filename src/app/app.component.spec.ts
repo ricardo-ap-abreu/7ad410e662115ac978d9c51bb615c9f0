@@ -1,4 +1,5 @@
-import { TestBed } from '@angular/core/testing';
+import { DebugElement } from '@angular/core';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './ui/pages/home/home.component';
@@ -6,10 +7,15 @@ import { MainComponent } from './ui/pages/main/main.component';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
+    let fixture: ComponentFixture<AppComponent>;
+    let debugElement: DebugElement;
+
     await TestBed.configureTestingModule({
       imports: [RouterTestingModule],
       declarations: [AppComponent, MainComponent, HomeComponent],
     }).compileComponents();
+    fixture = TestBed.createComponent(AppComponent);
+    debugElement = fixture.debugElement;
   });
 
   it('should create the app', () => {
@@ -22,14 +28,5 @@ describe('AppComponent', () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
     expect(app.title).toEqual('ailos');
-  });
-
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain(
-      'ailos app is running!'
-    );
   });
 });

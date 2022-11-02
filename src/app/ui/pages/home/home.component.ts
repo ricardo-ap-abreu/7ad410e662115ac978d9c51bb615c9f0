@@ -7,15 +7,15 @@ import { SideNavToogle } from '../../models/sidenav/interfaces/side-nav-toggle.i
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
+  value: boolean = false;
+
   constructor() {}
 
   ngOnInit(): void {}
 
-  hasSocialNumber(): boolean {
-    return false;
+  hasSocialNumber(value: any) {
+    this.value = value;
   }
 
-  goToAdmission(): void {
-    console.log('teste');
-  }
+  goToAdmission(): void {}
 }
