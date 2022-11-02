@@ -1,3 +1,5 @@
 export const environment = {
-  production: true
+  production: true,
+  appName: 'ailos',
+  backendUrl: 'http://localhost:3000',
 };

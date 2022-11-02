@@ -1,0 +1,66 @@
+.header-container {
+  display: grid;
+  grid-template-columns: 80% 20%;
+  margin: 0;
+  .info-block {
+    margin: 20px;
+    h1 {
+      font-family: "Exo 2";
+      font-weight: 700;
+      font-size: 36px;
+      &.title {
+        margin: 5px 0 0 0;
+      }
+    }
+
+    .breadcrumb {
+      background: none;
+      font-size: 12px;
+      font-family: "Open Sans", sans-serif;
+      margin: 0;
+    }
+  }
+  .menu-block {
+    display: flex;
+    align-items: center;
+
+    .notification {
+      padding: 0 15px;
+      span {
+        font-size: 25px;
+        color: #125d79;
+        .mat-badge-content {
+          font-size: 10px;
+          color: #ffffff;
+        }
+      }
+    }
+
+    mat-chip {
+      border: 1px #125d79 solid;
+      color: #125d79;
+      background-color: #ffffff !important;
+      font-family: "Exo 2";
+      font-weight: 600;
+      font-size: 20px;
+      padding: 19px 24px;
+    }
+
+    .config {
+      border: 1px #125d79 solid;
+      border-radius: 50%;
+      width: 42px;
+      height: 42px;
+      margin: 0 15px;
+      .avatar {
+        width: 42px;
+        height: 42px;
+        border-radius: 50%;
+      }
+    }
+  }
+
+  .mat-standard-chip {
+    border-radius: 25px !important;
+  }
+}

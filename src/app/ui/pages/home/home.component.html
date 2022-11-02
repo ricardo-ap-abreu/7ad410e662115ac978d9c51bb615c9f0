@@ -1,0 +1,83 @@
+<mat-drawer-container class="home-container" [hasBackdrop]="true">
+  <app-header></app-header>
+  <app-stepper></app-stepper>
+  <div class="actions-container">
+    <button
+      class="start-admission"
+      mat-flat-button
+      (click)="goToAdmission()"
+      (results)="hasSocialNumber($event)"
+    >
+      Inicar nova admissão
+    </button>
+    <button class="hints" mat-flat-button (click)="drawer.toggle()">
+      Dicas para abertura da conta
+    </button>
+  </div>
+
+  <mat-drawer #drawer class="home-sidenav" position="end" mode="over">
+    <h2>Check-list para <br />abertura da conta</h2>
+    <p>
+      Confira algumas dicas que irão lhe ajudar neste atendimento para que a
+      admissão aconteça da melhor forma possível.
+    </p>
+    <div class="home-section">
+      <div>
+        <mat-checkbox #meetYourCooperate class="home-margin" color="primary"
+          >Conheça seu cooperado</mat-checkbox
+        >
+        <div *ngIf="meetYourCooperate.checked">
+          <ul class="list">
+            <li>O que traz você até a Cooperativa?</li>
+            <li>O que é mais importante na sua vida?</li>
+            <li>Você tem algum sonho?</li>
+          </ul>
+        </div>
+      </div>
+      <div>
+        <mat-checkbox
+          #talkAboutYourCooperative
+          class="home-margin"
+          color="primary"
+          >Fale sobre a Cooperativa</mat-checkbox
+        >
+        <div *ngIf="talkAboutYourCooperative.checked">
+          <ul class="list">
+            <li>
+              Modelo de Negócio: direito a voto, transparência na gestão,
+              PROGRID, retorno das sobras, taxas atrativas;
+            </li>
+            <li>
+              Rede de Atendimento: App, Conta Online, SAC, Caixas Eletrônicos
+              (compartilhados entre as Cooperativas), Postos de Atendimento.
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div>
+        <mat-checkbox
+          #requiredDocumentsAndEvidences
+          class="home-margin"
+          color="primary"
+          >Documentos e comprovações necessárias</mat-checkbox
+        >
+        <div *ngIf="requiredDocumentsAndEvidences.checked">
+          <ul class="list">
+            <li>CPF regular na Receita Federal;</li>
+            <li>
+              Documento de Identificação (RG, CNH, Carteira de Trabalho, RNM,
+              Carteira Profissional, Passaporte Brasileiro);
+            </li>
+            <li>Comprovante de endereço;</li>
+            <li>Comprovante de renda.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="drawer-action">
+      <button class="close-drawer" mat-flat-button (click)="drawer.close()">
+        Continuar atendimento
+      </button>
+    </div>
+  </mat-drawer>
+</mat-drawer-container>

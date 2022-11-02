@@ -1,0 +1,91 @@
+.home-container {
+  display: block;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.home-menu-sidenav {
+  width: 100px;
+}
+
+mat-drawer-content {
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+mat-drawer {
+  padding: 100px 40px;
+  font-family: "Open Sans", sans-serif;
+  &.home-sidenav {
+    width: 500px;
+    display: flex;
+    align-items: center;
+
+    font-size: 14px;
+    h2 {
+      font-family: "Open Sans", sans-serif;
+      font-size: 22px;
+    }
+  }
+  mat-checkbox {
+    font-family: "Open Sans", sans-serif !important;
+    font-size: 14px;
+    margin-top: 5px;
+  }
+  ul.list {
+    display: list-item;
+    list-style: disc !important;
+    li {
+      font-family: "Open Sans", sans-serif !important;
+      font-size: 11px;
+      margin-top: 10px;
+    }
+  }
+  .drawer-action {
+    display: flex;
+    align-self: center;
+    position: absolute;
+    bottom: 30px;
+    button {
+      height: 48px;
+      width: 232px;
+      border-radius: 0;
+      margin: 0 97px;
+      &.close-drawer {
+        font-family: "Open Sans", sans-serif;
+        border: 1px rgb(22, 92, 125) solid;
+        color: rgb(22, 92, 125);
+      }
+    }
+  }
+}
+
+.actions-container {
+  min-height: 78px;
+  padding: 0 25px;
+
+  display: block;
+  button {
+    border-radius: 0;
+    &.start-admission {
+      background-color: rgb(22, 92, 125);
+      color: #ffffff;
+    }
+    &.hints {
+      border: 1px rgb(22, 92, 125) solid;
+      color: rgb(22, 92, 125);
+    }
+    width: 274px;
+    height: 48px;
+    margin: 15px 15px 15px 0;
+  }
+}
+
+::ng-deep .mat-checkbox-checked.mat-primary .mat-checkbox-background {
+  background-color: #ffa300;
+}

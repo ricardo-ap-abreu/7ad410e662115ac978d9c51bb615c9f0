@@ -1,0 +1,28 @@
+{
+  "clients": [
+    {
+      "id": 1,
+      "name": "Maria Salvador",
+      "socialNumber": "12345678999",
+      "situation": "regular"
+    },
+    {
+      "id": 2,
+      "name": "Mayra Salvador",
+      "socialNumber": "12584789919",
+      "situation": "regular"
+    },
+    {
+      "id": 2,
+      "name": "Mayra Salvador",
+      "socialNumber": "12584789919",
+      "situation": "regular"
+    },
+    {
+      "id": 2,
+      "name": "Mayra Salvador",
+      "socialNumber": "12584789919",
+      "situation": "regular"
+    }
+  ]
+}
